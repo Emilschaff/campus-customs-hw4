@@ -1,0 +1,13 @@
+import { chromium } from 'playwright-core';
+const browser = await chromium.launch({ headless: true, executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe' });
+console.log('browser');
+const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+page.on('console', msg => console.log('CONSOLE', msg.type(), msg.text()));
+page.on('requestfailed', req => console.log('FAILED', req.url(), req.failure()?.errorText));
+await page.goto('http://localhost:5173/', { waitUntil: 'networkidle' }); console.log('page');
+await page.locator('.chat-toggle').click();
+console.log('buttons', await page.locator('button').allTextContents()); await page.getByRole('button', { name: 'Show me hoodies' }).click(); console.log('clicked');
+await page.locator('.dynamic-results').waitFor({ state: 'visible', timeout: 90000 });
+await page.waitForTimeout(1000);
+await page.screenshot({ path: '../output/app_check_images/dynamic-search.png', fullPage: true });
+await browser.close();

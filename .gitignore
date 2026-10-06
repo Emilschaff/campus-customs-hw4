@@ -1,0 +1,13 @@
+# Required exclusions
+data/
+.env
+.env.*
+node_modules/
+
+# Generated / local-only files
+__pycache__/
+*.pyc
+.venv/
+venv/
+frontend/dist/
+*.tsbuildinfo

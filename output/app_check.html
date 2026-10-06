@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Customs — Live App Check</title>
+  <style>
+    :root { color: #071c2f; background: #f5f0e7; font-family: Arial, sans-serif; }
+    body { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1, h2 { color: #00356b; }
+    h1 { font-family: Georgia, serif; font-size: 42px; margin-bottom: 8px; }
+    h2 { border-top: 3px solid #b58a45; padding-top: 22px; margin-top: 52px; }
+    p { color: #42586d; line-height: 1.6; max-width: 850px; }
+    figure { margin: 24px 0 0; background: #fffdf9; padding: 14px; border: 1px solid #b58a4566; box-shadow: 0 8px 24px #071c2f18; }
+    img { display: block; width: 100%; height: auto; }
+    figcaption { color: #718095; font-size: 12px; padding: 12px 4px 2px; }
+    .status { color: #8c682e; letter-spacing: .12em; text-transform: uppercase; font-size: 11px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="status">Campus Customs · live app check</div>
+  <h1>Three real storefront checks</h1>
+  <p>Captured from the running Vite frontend at <code>localhost:5173</code> with the FastAPI service and database-backed agent running at port 8000. The images below are direct screenshots from those browser sessions, not mockups.</p>
+
+  <h2>1. Chat inventory and price lookup</h2>
+  <p>The chat asks for inventory on the product page for Basic Hoodie Big Yale. The response reports the database-backed price of $68 and the recorded quantities by size, demonstrating that the assistant is using live catalogue and inventory data.</p>
+  <figure><img src="app_check_images/inventory.png" alt="Product detail page with chat showing inventory quantities for Basic Hoodie Big Yale"><figcaption>Real browser screenshot: product detail, size inventory, and completed assistant response.</figcaption></figure>
+
+  <h2>2. Dynamic category search cards</h2>
+  <p>The quick prompt sends “Show me hoodies” to the agent. The returned structured product matches appear in the “Worth a closer look” section with real images, names, prices, and descriptions.</p>
+  <figure><img src="app_check_images/dynamic-search.png" alt="Home page with chat response and dynamic hoodie product cards"><figcaption>Real browser screenshot: agent response plus dynamically rendered hoodie cards.</figcaption></figure>
+
+  <h2>3. Catalogue search usability feature</h2>
+  <p>Typing “hoodie” into the Products search control immediately narrows the catalogue to 26 matching items while preserving the filter and sort controls. This verifies the Problem 9 browse improvement in the running storefront.</p>
+  <figure><img src="app_check_images/catalogue-filter.png" alt="Products page filtered to hoodie results"><figcaption>Real browser screenshot: live catalogue filter showing 26 of 102 products.</figcaption></figure>
+</body>
+</html>
